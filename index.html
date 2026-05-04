@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acadêmico Pro</title>
+<title>Acadêmico Pro — Copy</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -23,7 +23,8 @@
 
 
   #card {
-    width: 640px;
+    width: 100%;
+    max-width: 640px;
     background: #0f0f0f;
     border: 1px solid #2a2a2a;
     border-radius: 20px;
@@ -33,7 +34,7 @@
 
   .hero {
     background: linear-gradient(135deg, #0a1f17 0%, #0f2e20 50%, #102818 100%);
-    padding: 48px 44px 36px;
+    padding: clamp(24px, 6vw, 48px) clamp(18px, 6vw, 44px) clamp(20px, 4vw, 36px);
     position: relative;
     overflow: hidden;
   }
@@ -70,7 +71,7 @@
 
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 32px;
+    font-size: clamp(22px, 5vw, 32px);
     font-weight: 700;
     color: #f0f0f0;
     line-height: 1.25;
@@ -93,12 +94,12 @@
   }
 
   .body {
-    padding: 32px 44px 40px;
+    padding: clamp(20px, 5vw, 32px) clamp(18px, 6vw, 44px) clamp(24px, 5vw, 40px);
   }
 
   .features {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 10px;
     margin-bottom: 28px;
   }
@@ -133,11 +134,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
   }
   .price-left {}
   .price-tag {
     font-family: 'Playfair Display', serif;
-    font-size: 38px;
+    font-size: clamp(28px, 7vw, 38px);
     font-weight: 700;
     color: #f0f0f0;
     line-height: 1;
@@ -219,13 +222,14 @@
     display: inline-block;
     background: #1D9E75;
     color: #fff;
-    font-size: 14px;
+    font-size: clamp(13px, 3vw, 14px);
     font-weight: 600;
-    padding: 12px 30px;
+    padding: 12px clamp(18px, 5vw, 30px);
     border-radius: 8px;
     text-decoration: none;
     letter-spacing: 0.02em;
     margin-bottom: 10px;
+    word-break: break-word;
   }
   .cta-note {
     font-size: 11px;
@@ -249,6 +253,12 @@
     color: #5a6e64;
     line-height: 1.7;
     font-style: italic;
+  }
+  @media (max-width: 400px) {
+    body { padding: 0; }
+    #card { border-radius: 0; border-left: none; border-right: none; }
+    .price-right { text-align: left; }
+    .price-right p { max-width: 100%; }
   }
 </style>
 </head>
